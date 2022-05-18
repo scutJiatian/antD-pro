@@ -1,0 +1,7 @@
+<template>
+  <div>workplace</div>
+</template>
+
+<script>
+export default {};
+</script>
