@@ -1,6 +1,6 @@
 //权限校验函数
 export function getCurrentAuthority() {
-  return ["user"];
+  return ["admin"];
 }
 
 export function check(authority) {

@@ -3,10 +3,11 @@ import VueRouter from "vue-router";
 import NProgress from "nprogress"; //路由加载过度动画库
 import "nprogress/nprogress.css"; //路由加载过度动画库css
 import findLast from "loadsh/findLast";
+import { notification } from "ant-design-vue"; //提示框
 import { check, isLogin } from "@/utils/auth";
-import layout from "@/layout/basicLayout";
-import notFound from "@/components/myNotFound";
-import forBidden from "@/components/forBidden";
+import layout from "@/layout/basicLayout"; //基础布局组件
+import notFound from "@/components/myNotFound"; //404页面
+import forBidden from "@/components/forBidden"; //禁止进入页面
 Vue.use(VueRouter);
 /**
  * 路由配置说明：
@@ -136,6 +137,10 @@ router.beforeEach((to, from, next) => {
         path: "/user/login",
       });
     } else if (to.path !== "/403") {
+      notification.error({
+        message: "403",
+        description: "没有权限 请联系管理员",
+      });
       next({
         path: "/403",
       });
